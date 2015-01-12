@@ -8,9 +8,9 @@ public class Wasserkreislauf {
 	private Deque<Wasserelement> kuehlkreislauf = new LinkedList<>();
 	
 	public Wasserkreislauf() {
-		
-	}
 
+	}
+	
 	public void rotiere() {
 		this.kuehlkreislauf.addLast(this.kuehlkreislauf.pop());
 	}
@@ -22,6 +22,5 @@ public class Wasserkreislauf {
 	public void setKuehlkreislauf(Deque<Wasserelement> kuehlkreislauf) {
 		this.kuehlkreislauf = kuehlkreislauf;
 	}
-	
 	
 }
