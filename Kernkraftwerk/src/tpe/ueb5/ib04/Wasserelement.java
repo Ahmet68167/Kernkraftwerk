@@ -4,12 +4,12 @@ public class Wasserelement {
 
 	private int temperatur;
 	
-	public Wasserelement(int temperatur) {
-		this.setTemperatur(temperatur);
+	public Wasserelement() {
+		this.temperatur = 10;
 	}
 
 	public int getTemperatur() {
-		return temperatur;
+		return this.temperatur;
 	}
 
 	public void setTemperatur(int temperatur) {
