@@ -6,8 +6,8 @@ public class Pumpe implements Runnable {
 	private int pumpenkoeffizient;
 	
 	public Pumpe(Wasserkreislauf wasserkreislauf, int pumpenkoeffizient) {
-		this.setWasserkreislauf(wasserkreislauf);
-		this.setPumpenkoeffizient(pumpenkoeffizient);
+		this.wasserkreislauf = wasserkreislauf;
+		this.pumpenkoeffizient = pumpenkoeffizient;
 	}
 
 	@Override
@@ -17,7 +17,7 @@ public class Pumpe implements Runnable {
 	}
 	
 	public Wasserkreislauf getWasserkreislauf() {
-		return wasserkreislauf;
+		return this.wasserkreislauf;
 	}
 
 	public void setWasserkreislauf(Wasserkreislauf wasserkreislauf) {
@@ -25,7 +25,7 @@ public class Pumpe implements Runnable {
 	}
 
 	public int getPumpenkoeffizient() {
-		return pumpenkoeffizient;
+		return this.pumpenkoeffizient;
 	}
 
 	public void setPumpenkoeffizient(int pumpenkoeffizient) {
