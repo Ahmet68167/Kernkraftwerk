@@ -12,13 +12,16 @@ public class Pumpe implements Runnable {
 
 	@Override
 	public void run() {
-		this.wasserkreislauf.rotiere();
 		
-		try {
-			this.wait(1000/this.pumpenkoeffizient);
-		} catch (InterruptedException e) {
+		while(true) {
+			this.wasserkreislauf.rotiere();
+		
+			try {
+				this.wait(1000/this.pumpenkoeffizient);
+			} catch (InterruptedException e) {
 			
-			e.printStackTrace();
+				e.printStackTrace();
+			}
 		}
 		
 	}
