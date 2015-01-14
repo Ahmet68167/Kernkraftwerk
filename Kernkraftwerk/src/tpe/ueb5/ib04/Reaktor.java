@@ -6,16 +6,43 @@ public class Reaktor implements Runnable {
 	private int erwaermungskoeffizient;
 	private int abwaerme;
 	private boolean kernschmelze;
+	private boolean running;
 	
 	public Reaktor() {
 		this.erwaermungskoeffizient = 42;
-		this.abwaerme = 0;
+		this.abwaerme = 10;
 		this.kernschmelze = false;
+		this.running = true;
 	}
 	
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
+		
+		while(this.running) {
+			
+			synchronized(Leitware.LOCK) {
+			
+				try {
+				
+					this.abwaerme += 1;
+				
+					if(this.abwaerme >= KRITISCHE_TEMPERATUR) {
+						System.out.println("Kernschmelze");
+						this.kernschmelze = true;
+						this.running = false;
+					}
+				
+					Leitware.LOCK.wait(1000 / this.erwaermungskoeffizient);
+				
+				} catch (InterruptedException e) {
+					System.out.println("Reaktor wurde angehalten");
+					this.running = false;
+					e.printStackTrace();
+				}
+			
+			}
+			
+		}
 		
 	}
 
@@ -41,6 +68,14 @@ public class Reaktor implements Runnable {
 
 	public void setKernschmelze(boolean kernschmelze) {
 		this.kernschmelze = kernschmelze;
+	}
+	
+	public boolean getRunning() {
+		return this.running;
+	}
+	
+	public void setRunning(boolean running) {
+		this.running = running;
 	}
 
 }
