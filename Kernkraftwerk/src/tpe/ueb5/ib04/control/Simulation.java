@@ -4,11 +4,11 @@ public class Simulation {
 
 	public static void main(String[] args) {
 		
-		/*
+		
 		Thread a = new Thread(new Kernkraftwerk(1));
 		a.start();
-		*/
 		
+		/*
 		// Kernschmelze
 		Thread b = new Thread(new Kernkraftwerk(1, 2700, 350));
 		b.start();
