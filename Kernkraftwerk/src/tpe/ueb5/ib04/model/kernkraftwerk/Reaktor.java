@@ -48,6 +48,7 @@ public class Reaktor implements Runnable {
 					if(this.abwaerme >= KRITISCHE_TEMPERATUR) {
 						System.out.println("Es hat eine Kernschmelze stattgefunden.");
 						Kernkraftwerk.running = false;
+						System.exit(0);
 					}
 
 					Leitware.LOCK.wait(1000 / this.erwaermungskoeffizient);
